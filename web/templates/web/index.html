@@ -1,0 +1,44 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-md-2 sidenav">
+            <div class="well"><p><a href="#">Overview</a></p></div>
+            <div class="well"><p><a href="#">Protoype</a></p></div>
+        </div>
+        <div class="col-md-8 text-left">
+            <h1>Overview</h1>
+            <p>Experiences of the First World War could be profoundly[HD2] different, depending on the location and type
+                of deployment[HD3] or military unit, stage of the war, medical issues, social class and more. This
+                broader project seeks to provide more context for the experiences of different military units in
+                different locations and different stages of the war. In histories, memoirs, diaries, correspondence and
+                images about a given military unit (e.g. a battalion), what places are mentioned most, and is said about
+                them - how are they described or discussed?.</p>
+            <hr>
+            <h3>MoSCoW requirements</h3>
+            <p><strong>MUST :​</strong><br><br>
+                Accept an input file in the format of text​<br><br>
+                Identify place names​<br><br>
+                Accept English​<br><br>
+                Extract the sentences surrounding each place​<br><br>
+                <strong>SHOULD :​</strong><br><br>
+                Accept an input file in the format of PDF or XML​<br><br>
+                Identify person names​<br><br>
+                Accepting multiple input files​<br><br>
+                <strong>COULD :​</strong><br><br>
+                Identify the normalized temporal expressions​<br><br>
+                <strong>WOULD :​</strong><br><br>
+                Identify the description of the places names​<br><br>
+                Build a website as demo<br><br>
+            </p>
+            <iframe width="420" height="315"
+                    src="https://youtu.be/Df1_7kvV91s">
+            </iframe>
+            <hr>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

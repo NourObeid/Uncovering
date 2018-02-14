@@ -1,0 +1,13 @@
+{% extends 'web/base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>Upload a text file</p><input type="file" name="myfile">
+    <button type="submit">Go!</button>
+  </form>
+
+  <p><a href="{% url 'post_list' %}">Return to home</a></p>
+{% endblock %}
