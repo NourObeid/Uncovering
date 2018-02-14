@@ -17,12 +17,26 @@ import textrazor
 def index(request):
     return render(request, 'web/index.html', {})
 
-def post_detail(request, pk):
+def post_detail(request, pk, en):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'web/post_detail.html', {'post': post})
+    en.sort(key=lambda x: x.relevance_score, reverse=True)
+    search_results = {}
+    search_result = {}
+    seen = set()
+    for entity in en:
+        if entity.id not in seen:
+            counter = 0
+            for enti in en:
+                if entity.id == enti.id:
+                    counter += 1
+            search_result={entity.id, counter, entity.relevance_score, entity.confidence_score, entity.freebase_types}
+            search_results.append(search_result)
+            seen.add(entity.id)
+    return render(request, 'web/post_detail.html', {'post': post,'results':search_results})
 
 
 def post_new(request):
+
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
@@ -35,22 +49,25 @@ def post_new(request):
             client.set_entity_freebase_type_filters(["/location/location"])
             client.set_entity_dbpedia_type_filters(["Place"])
             response = client.analyze(post.text)
+            search_results = []
+            search_result = ()
+            seen = set()
             entities = list(response.entities())
             entities.sort(key=lambda x: x.relevance_score, reverse=True)
-            seen = set()
             for entity in entities:
                 if entity.id not in seen:
                     counter = 0
                     for enti in entities:
                         if entity.id == enti.id:
                             counter += 1
-                    print(entity.id, counter, entity.relevance_score, entity.confidence_score, entity.freebase_types)
+                    search_result = (entity.id, counter, entity.relevance_score, entity.confidence_score,
+                                     entity.freebase_types)
+                    print = (entity.id, counter, entity.relevance_score, entity.confidence_score,
+                                     entity.freebase_types)
+                    search_results.append(search_result)
                     seen.add(entity.id)
-            for topic in response.topics():
-                if topic.score > 0.3:
-                    print(topic.label)
 
-            return redirect('post_detail', pk=post.pk)
+            return render(request,'web/post_detail.html', {'post': post,'results':search_results})
     else:
         form = PostForm()
     return render(request, 'web/post_edit.html', {'form': form})

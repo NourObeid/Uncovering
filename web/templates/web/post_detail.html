@@ -8,6 +8,19 @@
     </div>
     {% endif %}
     <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-    <p>{{ post.text|linebreaksbr }}</p>
+         {% for result in results %}
+         <div class="post">
+
+             <p>Place: {{ result.0 }}</p>
+             <p>Occurence: {{ result.1 }}</p>
+             <p>Relevance score:{{ result.2 }}</p>
+             <p>Confidence score:{{ result.3 }}</p>
+             <p>Types: {{ result.4 }}</p>
+             <br>
+                          <br>
+
+
+         </div>
+     {% endfor %}
 </div>
 {% endblock %}
