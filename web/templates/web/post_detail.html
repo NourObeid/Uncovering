@@ -9,19 +9,59 @@
     </div>
     {% endif %}
     <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-         {% for result in results %}
-         <div class="post">
 
-             <p>Place: {{ result.0 }}</p>
-             <p>Occurence: {{ result.1 }}</p>
-             <p>Relevance score:{{ result.2 }}</p>
-             <p>Confidence score:{{ result.3 }}</p>
-             <p>Types: {{ result.4 }}</p>
-             <br>
-                          <br>
+    <div class="post" style="background-color:powderblue;">
+        <p>{{ post.text|linebreaksbr }}</p>
+
+    </div>
+    <div class="sentences">
+        <div class="table" id="t01">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Sentence</th>
+            </tr>
+         {% for sentence in sentences %}
+
+            <tr>
+                <td>{{ sentence.0 }}</td>
+                <td>{{ sentence.1 }}</td>
 
 
-         </div>
-     {% endfor %}
+
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+
+    </div>
+    <div class="table" id="t02">
+        <table>
+            <tr>
+                <th>Place</th>
+                <th>Occurence</th>
+                <th>Relevance score</th>
+                <th>Confidence score</th>
+                <th>Wikidata ID</th>
+                <th>Wikipedia link</th>
+            </tr>
+            {% for result in results %}
+
+            <tr>
+                <td>{{ result.0 }}</td>
+                <td>{{ result.1 }}</td>
+                <td>{{ result.2 }}</td>
+                <td>{{ result.3 }}</td>
+                <td>{{ result.4 }}</td>
+                <td><a href={{ result.5 }}> {{result.5}}</a></td>
+
+
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
 </div>
 {% endblock %}

@@ -45,31 +45,49 @@ def post_new(request):
             post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
-            post.save()
+            """implement the textRazor service"""
             textrazor.api_key = "229bd8d857455aeb31844f8abbfff313720ef0d4b5e2c5cb694e95d0"
+            """find the places"""
             client = textrazor.TextRazor(extractors=["entities", "topics"])
             client.set_entity_freebase_type_filters(["/location/location"])
             client.set_entity_dbpedia_type_filters(["Place"])
+            """making the table"""
             response = client.analyze(post.text)
             search_results = []
             search_result = ()
-            seen = set()
+            seen = []
             entities = list(response.entities())
-            entities.sort(key=lambda x: x.relevance_score, reverse=True)
+            """alphabetical order the entities"""
+            entities.sort(key=lambda x: x.id)
             for entity in entities:
-                if entity.id not in seen:
+                if entity.id not in seen and entity.confidence_score > 7:
                     counter = 0
+                    """count the occurences of the place names"""
                     for enti in entities:
                         if entity.id == enti.id:
                             counter += 1
                     search_result = (entity.id, counter, entity.relevance_score, entity.confidence_score,
-                                     entity.freebase_types)
-                    print = (entity.id, counter, entity.relevance_score, entity.confidence_score,
-                                     entity.freebase_types)
+                                     entity.wikidata_id, entity.wikipedia_link)
                     search_results.append(search_result)
-                    seen.add(entity.id)
+                    seen.append(entity.id)
+            """extracing the sentences"""
+            txt = post.text
+            sentences=[]
+            seen.sort(key=str.lower)
 
-            return render(request,'web/post_detail.html', {'post': post,'results':search_results})
+            for ele in seen:
+                """for each place name, split the text into sentences
+                each time with a successful locating, make a new set to store the placename and the sentencen
+                finally store the set in a new big set"""
+                for sentence in txt.split('.'):
+                    if ele in sentence:
+                        s=(ele,sentence)
+                        sentences.append(s)
+            search_results.sort(key=lambda x: x[1], reverse=True)
+
+
+
+            return render(request,'web/post_detail.html', {'post': post,'results':search_results,'sentences':sentences})
     else:
         form = PostForm()
     return render(request, 'web/post_edit.html', {'form': form})
