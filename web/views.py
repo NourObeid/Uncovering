@@ -16,6 +16,8 @@ import textrazor
 
 def index(request):
     return render(request, 'web/index.html', {})
+def animation(request):
+    return render(request, 'web/animation.html', {})
 
 def post_detail(request, pk, en):
     post = get_object_or_404(Post, pk=pk)

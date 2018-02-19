@@ -1,13 +1,20 @@
 {% extends 'web/base.html' %}
 
+
 {% block content %}
 <div class="container-fluid text-center">
-    <div class="row content">
-        <div class="col-md-2 sidenav">
-            <div class="well"><p><a href="#">Overview</a></p></div>
-            <div class="well"><p><a href="#">Protoype</a></p></div>
-        </div>
-        <div class="col-md-8 text-left">
+    <div class="sidenav" id="mySidenav">
+        <div><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+        <div class="well-sm"><p><a href="#Overview">Overview</a></p></div>
+        <div class="well-sm"><p><a href="#requirements">Requirements</a></p></div>
+        <div class="well-sm"><p><a href="#research">Research</a></p></div>
+
+    </div>
+
+    <div class="text-left" id="main" data-spy="scroll" data-target="#mySidenav">
+        <button onclick="openNav()" id="myBtn"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+        </button>
+        <div id="Overview">
             <h1>Overview</h1>
             <p>Experiences of the First World War could be profoundly[HD2] different, depending on the location and type
                 of deployment[HD3] or military unit, stage of the war, medical issues, social class and more. This
@@ -15,7 +22,22 @@
                 different locations and different stages of the war. In histories, memoirs, diaries, correspondence and
                 images about a given military unit (e.g. a battalion), what places are mentioned most, and is said about
                 them - how are they described or discussed?.</p>
-            <hr>
+            <p>• Experiences of the First World War could be thoroughly different, depending on the location, type of
+                military unit, medical issues, social class and more. We aim to provide more context for the experiences
+                of different military units in different locations of the war and seek to find the connections among
+                them.
+
+
+            <p>• We are collaborating with the British Library, text-mining and geo-referencing on a large collection of
+                digitised books provided by the British Library.</p>
+
+
+            <p>• We need to apply machine learning, corpus linguistics and sentiment analysis techniques to identify and
+                generate a gazetteer of the names of places within digitised publications from and about the First World
+                War</p>
+        </div>
+        <hr>
+        <div id="requirements">
             <h3>MoSCoW requirements</h3>
             <p><strong>MUST :​</strong><br><br>
                 Accept an input file in the format of text​<br><br>
@@ -32,13 +54,82 @@
                 Identify the description of the places names​<br><br>
                 Build a website as demo<br><br>
             </p>
-            <iframe width="420" height="315"
-                    src="https://youtu.be/Df1_7kvV91s">
-            </iframe>
-            <hr>
-
         </div>
+        <hr>
+        <div id="research">
+            <h2>Research</h2>
+            <p>We have a range of gazetteers to choose; It is difficult to find a source that provides a perfect
+                gazetteer
+                for the domain of WW1 so it is necessary to experiment with different gazetteers before deciding which
+                one
+                to use. They are:
+
+                Genomes: covers all countries and contains over eleven million place-names, the drawback is some
+                historical
+                place-names will not be identified
+                Deep: historical place names in England
+                Pleiades+: a community build gazetteer of ancient places
+                Unlock: a general gazetteer mainly for the UK
+
+
+                The system should be able to identify people names as well. It is found that identifying place names and
+                person names at the same time would increase the accuracy of differentiating some ambiguous places. For
+                example, ‘Levis’ could be a first name or an island in Scotland. As well as “Mrs Chesterfield”, “Earl of
+                Essex”.
+
+                Local gazetteers are important on improving the speed of processing large files. Comparing to use online
+                gazetteer services, setting up a local database of storing the gazetteers is more desirable.
+
+                Process Pipeline
+
+                The specified text file is going through a series of processing steps which are combined into one
+                pipeline.
+                It is first tokenised, part-of-speech tagged and lemmatised. After these initial steps, named entity
+                recognition is performed to identify location and person names as well as dates. Finally, visualisations
+                are
+                created to be able to inspect the file and the Geoparser output using a map interface in a browser.
+
+                1. Tokenization: It identifies word tokens and results in w elements being wrapped around the tokens and
+                wraps s elements around the sentences
+
+                2. Part-of-speech tagging is the process of marking up a word in a text (corpus) as corresponding to a
+                particular part of speech, based on both its definition and its context.
+
+                3. Lemmatization is the process of finding the stem form of inflected words.
+
+            </p>
+        </div>
+
     </div>
+</div>
 
 </div>
+<script>
+
+function openNav() {
+    document.getElementById("myBtn").style.display = "none";
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("mainNav").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+        document.getElementById("mainNav").style.marginLeft = "0";
+
+    document.body.style.backgroundColor = "white";
+}
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+</script>
 {% endblock %}

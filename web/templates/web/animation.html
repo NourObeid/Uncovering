@@ -1,0 +1,31 @@
+<!DOCTYPE html> {% load staticfiles %}
+<html lang="en">
+<head >
+    <title>{% block title %}Uncovering Lives of WW1{% endblock %}</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/web.css' %}">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+</head>
+
+<body>
+    <div class="item" data-aos="zoom-in-up">Welcome!</div>
+    <div class="item" data-aos="zoom-in-down">Hello!</div>
+    <div data-aos="zoom-in"><img src="{% static 'web/images/demo1.png' %}" alt="image1"/></div>
+    <div class="item" data-aos="zoom-in-up">zoom-in-up</div>
+    <div class="item" data-aos="zoom-in-down">zoom-in-down</div>
+    <div class="item" data-aos="zoom-in-left">zoom-in-left</div>
+    <div class="item" data-aos="zoom-in-right">zoom-in-right</div>
+    <div class="item" data-aos="zoom-out">zoom-out</div>
+    <div class="item" data-aos="zoom-out-up">zoom-out-up</div>
+<p><a href="{% url 'index' %}">go to the home page</a></p>
+
+</body>
+</html>
+<script>
+AOS.init({
+  duration: 1000
+})
+</script>

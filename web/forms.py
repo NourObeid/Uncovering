@@ -6,14 +6,13 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class UploadFileForm(forms.Form):
-    title = forms.CharField(max_length=250)
     file = forms.FileField()
 
 
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'text',)
+        fields = ( 'text',)
 
 
 class UserForm(forms.ModelForm):

@@ -1,0 +1,109 @@
+body{
+    font-family: "Lato", sans-serif;
+    	padding-left: 15px;
+
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    color: #000000;
+
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    font-family: Impact, Charcoal, sans-serif
+    padding: 16px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: grey;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+.item {
+  width: 500px;
+  height: 200px;
+  margin: 50px auto;
+  padding-top: 75px;
+  background: rgb(255,85,0);
+  text-align: center;
+  color: #4E4C48;
+  font-size: 1.5em;
+}
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+
