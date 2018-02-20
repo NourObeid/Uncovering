@@ -8,6 +8,8 @@ from .forms import PostForm
 from django.views.generic import View
 from .forms import UserForm
 import textrazor
+from wikidata.client import Client
+
 
 
 
@@ -25,6 +27,7 @@ def post_detail(request, pk, en):
     search_results = {}
     search_result = {}
     seen = set()
+    seenID = set()
     for entity in en:
         if entity.id not in seen:
             counter = 0
@@ -34,6 +37,7 @@ def post_detail(request, pk, en):
             search_result={entity.id, counter, entity.relevance_score, entity.confidence_score, entity.freebase_types}
             search_results.append(search_result)
             seen.add(entity.id)
+            seenID.add
     return render(request, 'web/post_detail.html', {'post': post,'results':search_results})
 
 
@@ -56,11 +60,12 @@ def post_new(request):
             search_results = []
             search_result = ()
             seen = []
+            seenID = []
             entities = list(response.entities())
             """alphabetical order the entities"""
             entities.sort(key=lambda x: x.id)
             for entity in entities:
-                if entity.id not in seen and entity.confidence_score > 7:
+                if entity.id not in seen:
                     counter = 0
                     """count the occurences of the place names"""
                     for enti in entities:
@@ -70,6 +75,7 @@ def post_new(request):
                                      entity.wikidata_id, entity.wikipedia_link)
                     search_results.append(search_result)
                     seen.append(entity.id)
+                    seenID.append(entity.wikidata_id)
             """extracing the sentences"""
             txt = post.text
             sentences=[]
@@ -84,10 +90,16 @@ def post_new(request):
                         s=(ele,sentence)
                         sentences.append(s)
             search_results.sort(key=lambda x: x[1], reverse=True)
+            """Get the information from wikidata including the description, coordinate location, country,capital,also known as"""
+            description=[]
 
 
 
-            return render(request,'web/post_detail.html', {'post': post,'results':search_results,'sentences':sentences})
+            """Google api key:AIzaSyAEUeH5mDNsTQO3OPor0XUq9ConykXpU_c"""
+
+
+
+            return render(request,'web/post_results.html', {'post': post,'results':search_results,'sentences':sentences})
     else:
         form = PostForm()
     return render(request, 'web/post_edit.html', {'form': form})

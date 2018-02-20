@@ -1,4 +1,4 @@
-{% extends 'web/base.html' %}
+{% extends 'web/base.html' %}{% load staticfiles %}
 
 
 {% block content %}
@@ -14,46 +14,38 @@
     <div class="text-left" id="main" data-spy="scroll" data-target="#mySidenav">
         <button onclick="openNav()" id="myBtn"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
         </button>
+  <div id="fixed">
+<h1 style="text-align:center ;padding:100px; margin: 0;font-family:Times New Roman; font-size:45px">UNCOVERING LIVES OF WORLD WAR I</h1>
+    <img id="image" src="{% static 'web/images/swords-3.png' %}" height="64px" >
+</div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
         <div id="Overview">
-            <h1>Overview</h1>
-            <p>Experiences of the First World War could be profoundly[HD2] different, depending on the location and type
-                of deployment[HD3] or military unit, stage of the war, medical issues, social class and more. This
-                broader project seeks to provide more context for the experiences of different military units in
-                different locations and different stages of the war. In histories, memoirs, diaries, correspondence and
-                images about a given military unit (e.g. a battalion), what places are mentioned most, and is said about
-                them - how are they described or discussed?.</p>
-            <p>• Experiences of the First World War could be thoroughly different, depending on the location, type of
-                military unit, medical issues, social class and more. We aim to provide more context for the experiences
-                of different military units in different locations of the war and seek to find the connections among
-                them.
+        <!--   <h1 style="font-size:30px">Overview</h1> -->
+            <p style="font-size:18px;padding-left:200px ; padding-right:200px;">Experiences of the First World War could be profoundly different,
+                depending on the location , military unit, stage of the war and many other factors.
+                This broader project seeks to provide more context for the experiences of different military units in
+                different locations and different stages of the war.
+                <b>In histories, memoirs, diaries, correspondence
+                which places are mentioned most, and is said about
+                    them ?</b> </p>
 
+            <br>
+            <br>
 
-            <p>• We are collaborating with the British Library, text-mining and geo-referencing on a large collection of
-                digitised books provided by the British Library.</p>
-
-
-            <p>• We need to apply machine learning, corpus linguistics and sentiment analysis techniques to identify and
+            <p style="font-size:18px;padding-left:50px;padding-right:50px"> We are collaborating with the British Library and by applying <!-- text-mining and geo-referencing techniques on a large collection of
+                digitised books provided by the British Library we were able to extract location names related to WW1 .</p> -->
+                Machine learning, Natural Language Processing Techniques , Corpus linguistics and Sentiment analysis techniques We are able identify and
                 generate a gazetteer of the names of places within digitised publications from and about the First World
                 War</p>
-        </div>
-        <hr>
-        <div id="requirements">
-            <h3>MoSCoW requirements</h3>
-            <p><strong>MUST :​</strong><br><br>
-                Accept an input file in the format of text​<br><br>
-                Identify place names​<br><br>
-                Accept English​<br><br>
-                Extract the sentences surrounding each place​<br><br>
-                <strong>SHOULD :​</strong><br><br>
-                Accept an input file in the format of PDF or XML​<br><br>
-                Identify person names​<br><br>
-                Accepting multiple input files​<br><br>
-                <strong>COULD :​</strong><br><br>
-                Identify the normalized temporal expressions​<br><br>
-                <strong>WOULD :​</strong><br><br>
-                Identify the description of the places names​<br><br>
-                Build a website as demo<br><br>
-            </p>
         </div>
         <hr>
         <div id="research">
