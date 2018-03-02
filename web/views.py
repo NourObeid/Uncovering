@@ -8,7 +8,7 @@ from .forms import PostForm
 from django.views.generic import View
 from .forms import UserForm
 import textrazor
-from wikidata.client import Client
+import googlemaps
 
 
 
@@ -20,6 +20,8 @@ def index(request):
     return render(request, 'web/index.html', {})
 def animation(request):
     return render(request, 'web/animation.html', {})
+def d3(request):
+    return render(request, 'web/d3.html', {})
 
 def post_detail(request, pk, en):
     post = get_object_or_404(Post, pk=pk)
@@ -93,13 +95,22 @@ def post_new(request):
             """Get the information from wikidata including the description, coordinate location, country,capital,also known as"""
             description=[]
 
-
-
             """Google api key:AIzaSyAEUeH5mDNsTQO3OPor0XUq9ConykXpU_c"""
+            #Google map geocoding api AIzaSyB_wOL3CPKPPI9mia-9900C9gGlZPyeEg4
+            coordinates=[]
+            gmaps = googlemaps.Client(key='AIzaSyAEUeH5mDNsTQO3OPor0XUq9ConykXpU_c')
+            for ele in seen:
+                geocode_result = gmaps.geocode('india')
+                data = geocode_result[0]
+                co = data.get("geometry").get("location")
+                lat = co.get("lat")
+                lng = co.get("lng")
+                coordinate=(lat,lng)
+                coordinates.append(coordinate)
 
 
 
-            return render(request,'web/post_results.html', {'post': post,'results':search_results,'sentences':sentences})
+            return render(request,'web/post_results.html', {'post': post,'results':search_results,'sentences':sentences,'coordinates':coordinates})
     else:
         form = PostForm()
     return render(request, 'web/post_edit.html', {'form': form})

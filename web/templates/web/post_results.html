@@ -9,6 +9,7 @@
     </div>
     {% endif %}
     <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    <iframe style='width: 100%; height: 800px;' src='//voyant-tools.org/?panels=cirrus%2Creader%2Cdocumentterms%2Csummary%2Ccontexts&corpus=0b703ce9634b719b3812c8cfb3be285e'></iframe>
 
     <div class="post" style="background-color:powderblue;">
         <p>{{ post.text|linebreaksbr }}</p>
@@ -63,5 +64,32 @@
 
         </table>
     </div>
+    <div id="map"></div>
+    <script>
+            {% for co in coordinatess %}
+
+      function initMap() {
+        var uluru = {lat: -25.363, lng: -25.363};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+                  {% endfor %}
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEUeH5mDNsTQO3OPor0XUq9ConykXpU_c&callback=initMap">
+    </script>
+      <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
 </div>
 {% endblock %}
