@@ -2,6 +2,14 @@
 {% block title %}Demo{% endblock %}
 
 {% block content %}
+<style>#map_wrapper {
+    height: 400px;
+}
+
+#map_canvas {
+    width: 100%;
+    height: 100%;
+}</style>
 <div class="post">
     {% if post.published_date %}
     <div class="date">
@@ -9,7 +17,6 @@
     </div>
     {% endif %}
     <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-    <iframe style='width: 100%; height: 800px;' src='//voyant-tools.org/?panels=cirrus%2Creader%2Cdocumentterms%2Csummary%2Ccontexts&corpus=0b703ce9634b719b3812c8cfb3be285e'></iframe>
 
     <div class="post" style="background-color:powderblue;">
         <p>{{ post.text|linebreaksbr }}</p>
@@ -64,32 +71,60 @@
 
         </table>
     </div>
-    <div id="map"></div>
-    <script>
-            {% for co in coordinatess %}
 
-      function initMap() {
-        var uluru = {lat: -25.363, lng: -25.363};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-                  {% endfor %}
+       <h3>My Google Maps Demo</h3>
+<div id="map_wrapper">
+    <div id="map_canvas" class="mapping"></div>
+</div>
 
-    </script>
+
+    <script type="text/javascript">
+    jQuery(function($) {
+    // Asynchronously Load the map API
+    var script = document.createElement('script');
+    script.src = "//maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
+    document.body.appendChild(script);
+});
+
+function initialize() {
+    var map;
+    var bounds = new google.maps.LatLngBounds();
+    var mapOptions = {
+        mapTypeId: 'roadmap'
+    };
+
+    // Display a map on the page
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    map.setTilt(45);
+
+
+
+    // Display multiple markers on a map
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+    // Loop through our array of markers & place each one on the map
+                 {% for coordinate in coordinates %}
+        var position = new google.maps.LatLng({{coordinate.1}}, {{coordinate.2}});
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+        });
+
+
+        // Automatically center the map fitting all markers on the screen
+        map.fitBounds(bounds);
+            {% endfor %}
+    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+        this.setZoom(14);
+        google.maps.event.removeListener(boundsListener);
+    });
+
+}
+  </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEUeH5mDNsTQO3OPor0XUq9ConykXpU_c&callback=initMap">
     </script>
-      <style>
-       #map {
-        height: 400px;
-        width: 100%;
-       }
-    </style>
 </div>
 {% endblock %}

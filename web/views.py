@@ -100,12 +100,12 @@ def post_new(request):
             coordinates=[]
             gmaps = googlemaps.Client(key='AIzaSyAEUeH5mDNsTQO3OPor0XUq9ConykXpU_c')
             for ele in seen:
-                geocode_result = gmaps.geocode('india')
+                geocode_result = gmaps.geocode(ele)
                 data = geocode_result[0]
                 co = data.get("geometry").get("location")
                 lat = co.get("lat")
                 lng = co.get("lng")
-                coordinate=(lat,lng)
+                coordinate=(ele,lat,lng)
                 coordinates.append(coordinate)
 
 
