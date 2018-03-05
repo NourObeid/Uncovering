@@ -101,6 +101,8 @@ def post_new(request):
             gmaps = googlemaps.Client(key='AIzaSyAEUeH5mDNsTQO3OPor0XUq9ConykXpU_c')
             for ele in seen:
                 geocode_result = gmaps.geocode(ele)
+                if not geocode_result:
+                    print("list is empty")
                 data = geocode_result[0]
                 co = data.get("geometry").get("location")
                 lat = co.get("lat")
