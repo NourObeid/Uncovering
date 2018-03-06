@@ -64,14 +64,15 @@ def post_new(request):
             seen = []
             seenID = []
             entities = list(response.entities())
+            text1 = post.text
             """alphabetical order the entities"""
             entities.sort(key=lambda x: x.id)
             for entity in entities:
                 if entity.id not in seen:
                     counter = 0
                     """count the occurences of the place names"""
-                    for word in post.text:
-                        if entity.id == word:
+                    for word in text1.split():
+                        if entity.id == word or entity.id == word+".":
                             counter += 1
                     search_result = (entity.id, counter, entity.relevance_score, entity.confidence_score,
                                      entity.wikidata_id, entity.wikipedia_link)
