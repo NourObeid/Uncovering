@@ -14,9 +14,12 @@
     <div class="text-left" id="main" data-spy="scroll" data-target="#mySidenav">
         <button onclick="openNav()" id="myBtn"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
         </button>
-  <div id="fixed">
+  <div id="fixed" >
 <h1 style="text-align:center ;padding:100px; margin: 0;font-family:Times New Roman; font-size:45px">UNCOVERING LIVES OF WORLD WAR I</h1>
-    <img id="image" src="{% static 'web/images/swords-3.png' %}" height="64px" >
+  </div>
+        <div style="position: absolute;left: 47%;top: 40%;width: 100%;">
+
+        <img id="image" src="{% static 'web/images/swords-3.png' %}" height="96px" >
 </div>
 
         <br>
@@ -48,50 +51,6 @@
                 War</p>
         </div>
         <hr>
-        <div id="research">
-            <h2>Research</h2>
-            <p>We have a range of gazetteers to choose; It is difficult to find a source that provides a perfect
-                gazetteer
-                for the domain of WW1 so it is necessary to experiment with different gazetteers before deciding which
-                one
-                to use. They are:
-
-                Genomes: covers all countries and contains over eleven million place-names, the drawback is some
-                historical
-                place-names will not be identified
-                Deep: historical place names in England
-                Pleiades+: a community build gazetteer of ancient places
-                Unlock: a general gazetteer mainly for the UK
-
-
-                The system should be able to identify people names as well. It is found that identifying place names and
-                person names at the same time would increase the accuracy of differentiating some ambiguous places. For
-                example, ‘Levis’ could be a first name or an island in Scotland. As well as “Mrs Chesterfield”, “Earl of
-                Essex”.
-
-                Local gazetteers are important on improving the speed of processing large files. Comparing to use online
-                gazetteer services, setting up a local database of storing the gazetteers is more desirable.
-
-                Process Pipeline
-
-                The specified text file is going through a series of processing steps which are combined into one
-                pipeline.
-                It is first tokenised, part-of-speech tagged and lemmatised. After these initial steps, named entity
-                recognition is performed to identify location and person names as well as dates. Finally, visualisations
-                are
-                created to be able to inspect the file and the Geoparser output using a map interface in a browser.
-
-                1. Tokenization: It identifies word tokens and results in w elements being wrapped around the tokens and
-                wraps s elements around the sentences
-
-                2. Part-of-speech tagging is the process of marking up a word in a text (corpus) as corresponding to a
-                particular part of speech, based on both its definition and its context.
-
-                3. Lemmatization is the process of finding the stem form of inflected words.
-
-            </p>
-        </div>
-
     </div>
 </div>
 
