@@ -3,21 +3,10 @@
 
 {% block content %}
 <div class="container-fluid text-center">
-    <div class="sidenav" id="mySidenav">
-        <div><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
-        <div class="well-sm"><p><a href="#Overview">Overview</a></p></div>
-        <div class="well-sm"><p><a href="#requirements">Requirements</a></p></div>
-        <div class="well-sm"><p><a href="#research">Research</a></p></div>
-
-    </div>
-
-    <div class="text-left" id="main" data-spy="scroll" data-target="#mySidenav">
-        <button onclick="openNav()" id="myBtn"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-        </button>
   <div id="fixed" >
 <h1 style="text-align:center ;padding:100px; margin: 0;font-family:Times New Roman; font-size:45px">UNCOVERING LIVES OF WORLD WAR I</h1>
   </div>
-        <div style="position: absolute;left: 47%;top: 40%;width: 100%;">
+        <div style="position: absolute;left :0;top: 35%;width: 100%;">
 
         <img id="image" src="{% static 'web/images/swords-3.png' %}" height="96px" >
 </div>
@@ -55,32 +44,4 @@
 </div>
 
 </div>
-<script>
-
-function openNav() {
-    document.getElementById("myBtn").style.display = "none";
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-    document.getElementById("mainNav").style.marginLeft = "250px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-}
-
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-        document.getElementById("mainNav").style.marginLeft = "0";
-
-    document.body.style.backgroundColor = "white";
-}
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("myBtn").style.display = "block";
-    } else {
-        document.getElementById("myBtn").style.display = "none";
-    }
-}
-
-</script>
 {% endblock %}

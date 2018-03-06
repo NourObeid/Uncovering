@@ -70,8 +70,8 @@ def post_new(request):
                 if entity.id not in seen:
                     counter = 0
                     """count the occurences of the place names"""
-                    for enti in entities:
-                        if entity.id == enti.id:
+                    for word in post.text:
+                        if entity.id == word:
                             counter += 1
                     search_result = (entity.id, counter, entity.relevance_score, entity.confidence_score,
                                      entity.wikidata_id, entity.wikipedia_link)

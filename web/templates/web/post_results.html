@@ -12,14 +12,14 @@
     height: 100%;
 }
 table {
-    width:100%;
+    width:95%;
 }
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
 th, td {
-    padding: 5px;
+    padding: 15px;
     text-align: left;
 }
 table#t01 tr:nth-child(even) {
@@ -32,20 +32,72 @@ table#t01 th {
     background-color: black;
     color: white;
 }
+table#t02 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t02 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t02 th {
+    background-color: black;
+    color: white;
+}
+function openNav() {
+    document.getElementById("myBtn").style.display = "none";
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("mainNav").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+        document.getElementById("mainNav").style.marginLeft = "0";
+
+    document.body.style.backgroundColor = "white";
+}
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
 </style>
+    <div class="sidenav" id="mySidenav">
+        <div><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+        <div class="well-sm"><p><a href="#Overview">Overview</a></p></div>
+        <div class="well-sm"><p><a href="#requirements">Requirements</a></p></div>
+        <div class="well-sm"><p><a href="#research">Research</a></p></div>
+
+    </div>
+
+    <div class="text-left" id="main" data-spy="scroll" data-target="#mySidenav">
+        <button onclick="openNav()" id="myBtn"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+        </button>
+    </div>
+
 <div class="post">
     {% if post.published_date %}
-    <div class="date">
-        {{ post.published_date }}
+    <div class="date" style="font-family:Verdana;">
+       <h2>{{ post.published_date }}</h2>
     </div>
     {% endif %}
-    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-
-    <div class="post" style="background-color:powderblue;">
+    <div class="post" style="padding:15px;font-family:Arial Black;">
         <p>{{ post.text|linebreaksbr }}</p>
 
     </div>
-    <div class="sentences" >
+</div>
+<br>
+<br>
+<br>
+        <hr>
+
+    <div class="sentences" id="analysis">
         <div class="table" >
         <table id="t01">
             <tr>
@@ -68,8 +120,11 @@ table#t01 th {
 
 
     </div>
-    <div class="table" id="t02">
-        <table>
+<br>
+<br>
+<hr>
+    <div  id="summary">
+        <table id="t02">
             <tr>
                 <th>Place</th>
                 <th>Occurence</th>
@@ -94,11 +149,16 @@ table#t01 th {
 
         </table>
     </div>
+<br>
+<br>
+<hr>
 
-       <h3>My Google Maps Demo</h3>
+       <h3>Google Maps</h3>
 <div id="map_wrapper">
     <div id="map_canvas" class="mapping"></div>
 </div>
+<br>
+<br>
 
 
     <script type="text/javascript">
