@@ -108,3 +108,28 @@ body{
       .row.content {height:auto;}
     }
 
+
+
+#image {
+  position:absolute;
+  top:29%;
+  left:16%;
+  width:1000px;     /* 1000 */
+  height:500px;     /* 500 */
+  }
+
+ .wrapper {text-align:center;}
+
+
+  #third{
+     background: url("/static/images/this.jpg") 50% 0 no-repeat fixed;
+     color: white;
+     height: 650px;
+     padding: 100px 0 0 0;
+     }
+
+
+#hey {
+    background-image: url('../images/demo1.png');
+    background-color: #000000;
+

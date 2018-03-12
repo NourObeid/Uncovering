@@ -11,4 +11,6 @@ urlpatterns = [
     url(r'^logout/$', logout, name='logout', kwargs={'next_page': '/'}),
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
     url(r'^post/new/$', views.post_new, name='post_new'),
+    url(r'^blog', views.blog, name='blog'),
+    url(r'^AboutUs', views.AboutUs, name='AboutUs'),
 ]

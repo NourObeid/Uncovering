@@ -2,15 +2,49 @@
 
 
 {% block content %}
+
+<body style="background-color:#FFFFFF">
+
+
 <div class="container-fluid text-center">
-  <div id="fixed" >
-<h1 style="text-align:center ;padding:100px; margin: 0;font-family:Times New Roman; font-size:45px">UNCOVERING LIVES OF WORLD WAR I</h1>
-  </div>
-        <div style="position: absolute;left :0;top: 35%;width: 100%;">
+    <div class="sidenav" id="mySidenav">
+        <div><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+        <div class="well-sm"><p><a href="#Overview">Overview</a></p></div>
+        <div class="well-sm"><p><a href="#requirements">fill</a></p></div>
+        <div class="well-sm"><p><a href="#research">fill/</a></p></div>
+    </div>
 
-        <img id="image" src="{% static 'web/images/swords-3.png' %}" height="96px" >
-</div>
+    <div class="text-left" id="main" data-spy="scroll" data-target="#mySidenav">
+        <button onclick="openNav()" id="myBtn"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+        </button>
 
+
+
+        <div>
+            <!-- TITLE -->
+            <h1 style="text-align:center;padding:140px;margin:0;font-family:Times New Roman;font-size:55px;color:black;padding-top:24px">UNCOVERING LIVES OF WORLD WAR I</h1>
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+ <div>
+   <img id="image" src="{% static 'web/images/1.jpg'%}">
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <br>
         <br>
         <br>
@@ -22,26 +56,98 @@
 
         <div id="Overview">
         <!--   <h1 style="font-size:30px">Overview</h1> -->
-            <p style="font-size:18px;padding-left:200px ; padding-right:200px;">Experiences of the First World War could be profoundly different,
-                depending on the location , military unit, stage of the war and many other factors.
+            <p style="font-size:18px;padding-left:170px ; padding-right:170px;">Experiences of the First World War could be profoundly different, depending on the location, time, military unit, and many other variants.
                 This broader project seeks to provide more context for the experiences of different military units in
                 different locations and different stages of the war.
-                <b>In histories, memoirs, diaries, correspondence
+                <b>In histories, memoirs, diaries, correspondence,
                 which places are mentioned most, and is said about
                     them ?</b> </p>
 
-            <br>
+<br>
             <br>
 
-            <p style="font-size:18px;padding-left:50px;padding-right:50px"> We are collaborating with the British Library and by applying <!-- text-mining and geo-referencing techniques on a large collection of
-                digitised books provided by the British Library we were able to extract location names related to WW1 .</p> -->
-                Machine learning, Natural Language Processing Techniques , Corpus linguistics and Sentiment analysis techniques We are able identify and
-                generate a gazetteer of the names of places within digitised publications from and about the First World
-                War</p>
+ <!--           <p style="font-size:18px;padding-left:50px;padding-right:50px"> We are collaborating with the British Library and applying
+                Machine learning & Natural Language Processing Techniques to our System.
+                which detects and generate a gazetteer of place names and their description within digitised publications from and about the First World
+                War</p>  -->
         </div>
-        <hr>
+<!--       <p>Transforms texts into images of Places in the user's mind, taking him back in History .</p>     -->
+
     </div>
 </div>
 
 </div>
+
+
+<div class="wrapper">
+    <button> <a href="{% url 'post_new' %}" class="btn">Start</a> </button>
+</div>
+
+
+  <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+                <h2>Why Us </h2>
+            <p>Empowered by is its capacity of detecting place names that aren't mentioned in official gazetteers,
+            It gives the user a more realistic and a more precise image of life at various locations during the war. </p>
+
+          </div>
+          <div class="col-md-4">
+            <h2>Heading</h2>
+            <p>We are collaborating with the British Library and applying
+                Machine learning & Natural Language Processing Techniques to our System,
+                which detects and generate a gazetteer of place names and their description within digitised publications from and about the First World
+                War</p>
+          </div>
+          <div class="col-md-4">
+            <h2>HOW IT WOKRS </h2>
+            <ul> <li> Paste a Text </li> <li>Analyze</li></ul>
+          </div>
+        </div>
+  </div>
+
+
+
+
+
+<!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-primary active">
+    <input type="checkbox" checked="" autocomplete="off"> Active
+  </label>
+  <label class="btn btn-primary">
+    <input type="checkbox" autocomplete="off"> Check
+  </label>
+  <label class="btn btn-primary">
+    <input type="checkbox" autocomplete="off"> Check
+  </label>
+</div>
+
+-->
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<!--<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-primary active">
+    <input type="checkbox" checked="" autocomplete="off"> Active
+  </label>
+  <label class="btn btn-primary">
+    <input type="checkbox" autocomplete="off"> Check
+  </label>
+  <label class="btn btn-primary">
+    <input type="checkbox" autocomplete="off"> Check
+  </label>
+</div>
+
+
+-->
+ </body>
+
 {% endblock %}
+

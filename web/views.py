@@ -160,6 +160,13 @@ class UserFormView(View):
             return render(request, 'web/index.html', {'posts': posts})
         return render(request, self.template_name,{'form':form})
 
+def blog(request):
+    return render(request, 'web/blog.html')
+
+def AboutUs(request):
+    return render(request, 'web/AboutUs.html')
+
+
 
 
 
