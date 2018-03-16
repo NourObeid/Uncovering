@@ -1,8 +1,26 @@
 body{
     font-family: "Lato", sans-serif;
-    padding-left: 15px;
+    	padding-left: 15px;
+
 
 }
+
+
+
+
+#Nav a{
+     color: black;
+     text-decoration:none;
+}
+
+#Nav a:hover {
+    color:#8C001A ;
+    text-decoration:none ;
+    background-color:#FFF4CB;
+
+}
+
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -16,10 +34,9 @@ body{
     transition: 0.5s;
     padding-top: 60px;
 }
-
 .sidenav a {
     font-family: Impact, Charcoal, sans-serif
-    padding: 16px 8px 8px 32px;
+    padding: 20px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
@@ -39,6 +56,8 @@ body{
     margin-left: 50px;
 }
 
+
+
 #main {
     transition: margin-left .5s;
     padding: 16px;
@@ -49,7 +68,7 @@ body{
   .sidenav a {font-size: 18px;}
 }
 
-#myBtn {
+/*#myBtn {
   display: none;
   position: fixed;
   bottom: 20px;
@@ -68,6 +87,10 @@ body{
 #myBtn:hover {
   background-color: #555;
 }
+
+
+*/
+
 .item {
   width: 500px;
   height: 200px;
@@ -79,11 +102,11 @@ body{
   font-size: 1.5em;
 }
 
-/* Remove the navbar's default margin-bottom and rounded borders */
+/*
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
-    }
+    } */
 
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 450px}
@@ -93,10 +116,12 @@ body{
 
     /* Set black background color, white text and some padding */
     footer {
-      background-color: #333;
+      background-color:black;
       color: white;
-      padding: 15px;
-    }
+      padding:15px;
+
+}
+
 
 
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -109,14 +134,14 @@ body{
     }
 
 
-
 #image {
   position:absolute;
-  top:29%;
+  top:28%;   /*30 */
   left:16%;
   width:1000px;     /* 1000 */
-  height:500px;     /* 500 */
+  height:515px;     /* 500 */
   }
+
 
  .wrapper {text-align:center;}
 
@@ -132,4 +157,3 @@ body{
 #hey {
     background-image: url('../images/demo1.png');
     background-color: #000000;
-

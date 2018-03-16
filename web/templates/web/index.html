@@ -1,44 +1,34 @@
-{% extends 'web/base.html' %}{% load staticfiles %}
-
+{% extends 'web/base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 
 <body style="background-color:#FFFFFF">
 
-
 <div class="container-fluid text-center">
-    <div class="sidenav" id="mySidenav">
+<!--    <div class="sidenav" id="mySidenav">
         <div><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
         <div class="well-sm"><p><a href="#Overview">Overview</a></p></div>
-        <div class="well-sm"><p><a href="#requirements">fill</a></p></div>
-        <div class="well-sm"><p><a href="#research">fill/</a></p></div>
+        <div class="well-sm"><p><a href="#requirements">Start</a></p></div>
+        <div class="well-sm"><p><a href="#research">About</a></p></div>
     </div>
+
 
     <div class="text-left" id="main" data-spy="scroll" data-target="#mySidenav">
         <button onclick="openNav()" id="myBtn"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-        </button>
-
+        </button>   -->
 
 
         <div>
             <!-- TITLE -->
-            <h1 style="text-align:center;padding:140px;margin:0;font-family:Times New Roman;font-size:55px;color:black;padding-top:24px">UNCOVERING LIVES OF WORLD WAR I</h1>
-
+            <h1 style="text-align:center;padding:140px;margin:0;font-family:Times New Roman;font-size:55px;color:black;padding-top:20px">UNCOVERING LIVES OF WORLD WAR I</h1>
         </div>
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
 
- <div>
+<div>
+     <!-- Image -->
    <img id="image" src="{% static 'web/images/1.jpg'%}">
+</div>
 
         <br>
         <br>
@@ -52,20 +42,21 @@
         <br>
         <br>
         <br>
-
-
-        <div id="Overview">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div>
         <!--   <h1 style="font-size:30px">Overview</h1> -->
+
             <p style="font-size:18px;padding-left:170px ; padding-right:170px;">Experiences of the First World War could be profoundly different, depending on the location, time, military unit, and many other variants.
-                This broader project seeks to provide more context for the experiences of different military units in
-                different locations and different stages of the war.
-                <b>In histories, memoirs, diaries, correspondence,
-                which places are mentioned most, and is said about
-                    them ?</b> </p>
-
-<br>
-            <br>
-
+                This broader project seeks to provide more context for the experiences of different military units in different locations and different stages of the war. <b>In histories, memoirs, diaries, correspondence,which places are mentioned most and what is said about them ?</b> </p>
  <!--           <p style="font-size:18px;padding-left:50px;padding-right:50px"> We are collaborating with the British Library and applying
                 Machine learning & Natural Language Processing Techniques to our System.
                 which detects and generate a gazetteer of place names and their description within digitised publications from and about the First World
@@ -75,33 +66,38 @@
 
     </div>
 </div>
-
-</div>
-
+<br>
+<br>
 
 <div class="wrapper">
-    <button> <a href="{% url 'post_new' %}" class="btn">Start</a> </button>
+    <button> <a href="{% url 'post_new' %} "style="color:black;width:120px;height:50px;font-size:24px" class="btn">Start</a> </button>
 </div>
-
-
+<br>
+<br>
+<br>
+<br>
   <div class="container">
         <div class="row">
-          <div class="col-md-4">
-                <h2>Why Us </h2>
-            <p>Empowered by is its capacity of detecting place names that aren't mentioned in official gazetteers,
-            It gives the user a more realistic and a more precise image of life at various locations during the war. </p>
+          <div class="col-md-4" id="Overview">
+           <!--     <h2>Why Us </h2>    -->
+            <p style="font-size:38px;font-family:Snell Roundhand;text-align:left">A Collaboration with the British Library</p><!--Empowered by is its capacity of detecting place names that aren't mentioned in official gazetteers,
+            It gives the user a more realistic and a more precise image of life at various locations during the war. -->
+             <!--   which detects and generate a gazetteer of place names and their description within digitised publications from and about the First World
+                War -->
 
           </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>We are collaborating with the British Library and applying
-                Machine learning & Natural Language Processing Techniques to our System,
-                which detects and generate a gazetteer of place names and their description within digitised publications from and about the First World
-                War</p>
+          <div class="col-md-4" id="2">
+               <p style="font-size:38px;font-family:Snell Roundhand;text-align:right"><br>A glimpse into the past ...</p>
+          <!--  <h2>Heading</h2>
+              <p style="font-size:18px"><!--Empowered by is its capacity of detecting place names that aren't mentioned in official gazetteers,
+            It gives the user a more realistic and a more precise image of life at various locations during the war. - <p style="font-size:38px;font-family:Snell Roundhand;text-align:right"><br>A glimpse into the past ...</p>
+                Machine learning & Natural Language Processing Techniques to our System.   </p> -->
           </div>
-          <div class="col-md-4">
-            <h2>HOW IT WOKRS </h2>
-            <ul> <li> Paste a Text </li> <li>Analyze</li></ul>
+
+
+         <!-- <div class="col-md-4" id="3">
+          <!--  <h2 >How It Works </h2>
+              <p style="font-size:38px;font-family:Snell Roundhand;text-align:right"><br>A glimpse into the past ...</p>  -->
           </div>
         </div>
   </div>
@@ -149,5 +145,32 @@
 -->
  </body>
 
-{% endblock %}
+<script>
 
+function openNav() {
+    document.getElementById("myBtn").style.display = "none";
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("mainNav").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+        document.getElementById("mainNav").style.marginLeft = "0";
+
+    document.body.style.backgroundColor = "white";
+}
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+</script>
+{% endblock %}

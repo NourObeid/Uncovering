@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect,get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
 from django.contrib.auth import authenticate
-from web.models import Post
+from .models import Post
 from .forms import PostForm
 from django.views.generic import View
 from .forms import UserForm
@@ -66,6 +66,9 @@ def post_new(request):
             entities = list(response.entities())
             text1 = post.text
             """alphabetical order the entities"""
+            for entity in entities:
+                if entity.id == None:
+                    entities.remove(entity)
             entities.sort(key=lambda x: x.id)
             for entity in entities:
                 if entity.id not in seen:

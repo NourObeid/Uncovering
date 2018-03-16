@@ -5,17 +5,19 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'web/css/web.css' %}">
+
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="{% static 'web/js/d3.layout.cloud.js' %}"></script>
-    <script src="{% static 'web/js/browserify.js' %}"></script>
 
-     <nav class="navbar" id="mainNav" style="padding:18px;">
+  <!--  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-GxhP7S92hzaDyDJqbdpcHqV5cFflxAx0Yze/X7vUONp43KK1E8eUWaJIMkit3D0R" crossorigin="anonymous">
+<!-- NAV BAR -->
+    <nav class="navbar" id="mainNav" style="padding:18px;">
         <div class="container-fluid"  style="font-size:26px">
             <div class="navbar-header">
                 <a class="navbar-brand" href="{% url 'index' %}" style="color:black;font-size:26px ;padding-right:30px;"><img src="{% static 'web/images/favicon.ico'%}"></a>   <!-- REMOVED NAME -->
@@ -33,7 +35,6 @@
                         <ul class="dropdown-menu">
                             <li><a href="#">Tutorial</a></li>
                             <li><a href="#">Report</a></li>
-
                         </ul>
                     </li> -->
 <!--
@@ -66,7 +67,39 @@
             </div>
         </div>
     </nav>
+
+<!--
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+-->
+
 </head>
+
+
 
 <body>
 
@@ -75,17 +108,23 @@
 {% endblock %}
 
 </body>
-<footer class="container-fluid">
 
-    <div class="row">
+
+<footer class="container-fluid footer">
+
+    <div class="row ">
         <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <div class="footer-header"><a href="http://www.cs.ucl.ac.uk">UCL Computer Science Department</a></div>
+        <div class="col-md-4 added">
+
+
+           <div class="footer-header "><a href="http://www.cs.ucl.ac.uk">UCL Computer Science Department</a></div>
+
             <ul class="fa-ul ">
                 <li><a href="https://twitter.com/uclcs"><span class="fa fa-twitter"></span> @uclcs</a>
                 <li><span class="glyphicon glyphicon-phone-alt"></span> +44 (0)20 7679 7214
                 <li>
-                    <div class="footer-address">
+
+                   <div class="footer-address">
                         <span class="fa fa-building"></span>
                         University College London<br/>
                         Gower Street<br/>
@@ -94,13 +133,15 @@
                     </div>
             </ul>
         </div>
-        <div class="col-md-3">
-            <ul class="footer-team">
-                <p1>Team Members</p1>
-                <li>Nour Obeid <br><span class="glyphicon glyphicon-envelope"></span>
+
+
+        <div class="col-md-3 added2">
+            <ul class="footer-team ">
+                <p1>Team Members</p1> <li>Nour Obeid <br><span class="glyphicon glyphicon-envelope"></span>   <a href="mailto:nour98@hotmail.com">nour98@hotmail.com</a>
                 <li>Dennis He <br><span class="glyphicon glyphicon-envelope"></span>
                     <a href="mailto:he0707@hotmail.com">he0707@hotmail.com</a>
                 <li>George B <br><span class="glyphicon glyphicon-envelope"></span>
+                   <a href="mailto:he0707@hotmail.com">he0707@hotmail.com</a>
             </ul>
         </div>
     </div>

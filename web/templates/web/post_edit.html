@@ -1,15 +1,43 @@
-    {% extends 'web/base.html' %}
+
+{% extends 'web/base.html' %}
 
     {% block content %}
 
-    <div class="container-fluid text-center">
-                        <h1>Text</h1>
+<div class="container">
+        <div class="row">
+          <div class="col-md-4">
+                <h2>Copy text</h2>
+            <p style="font-size:18px">Empowered by is its capacity of detecting place names that aren't mentioned in official gazetteers,
+            It gives the user a more realistic and a more precise image of life at various locations during the war. </p>
 
-        <form method="POST" class="post-form">
-            {% csrf_token %}
+          </div>
+</div>
+    </div>
+
+<div>
+  <div class="container-fluid bg-danger text-center" style="background-color:white">
+                <h1 style ="family-font:">Text</h1>
+    </div>
+
+    <div class="container-fluid text-center">
+        <form method="POST" class="post-form btn-group ">{% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="save btn btn-default">Save</button>
+            <br>
+            <br>
+            <button type="submit" class="save btn btn-default" style="padding:16px ;margin-right:50px;margin-left:50px">Analyze</button>
+            <button type="reset"  class="btn btn-infor "style="padding:16px">Cancel</button>
         </form>
+
+      <!--   <div class="wrapper" >
+    <a href="{% url 'post_new' %}" class="btn btn-infor" style="float:right">Cancel</a>
+</div>   -->
     </div>
+
+
+<br>
+        <br>
     </div>
+
+
+
     {% endblock %}
