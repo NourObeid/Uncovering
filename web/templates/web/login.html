@@ -2,23 +2,43 @@
 {% extends 'web/base.html' %}
 
  {% block content %}
-     <h1>Login</h1>
+     <h1 style="text-align:center;font-family:Arial">Login</h1>
 
      {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
 <body>
-    <form action="" method="post">
+    <form action="" method="post" style="margin-left:570px;margin-top:50px">
          {% csrf_token %}
         <label for="username">Username:</label>
         <input type="text" name="username" value="" id="username"> <br />
+        <br>
         <label for="password">Password:</label>
         <input type="password" name="password" value="" id="password"> <br />
-        <input type="submit" value="login" />
+        <br>
+        <input type="submit" value="login" style="margin-left:110px;width:100px;height:50px;font-size:16px" />
     </form>
 </body>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 {# Assumes you setup the password_reset view in your URLconf #}
 {#<p><a href="{% url 'password_reset' %}">Lost password?</a></p>#}
 {% endblock %}
